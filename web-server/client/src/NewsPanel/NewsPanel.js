@@ -3,12 +3,13 @@ import _ from 'lodash';
 
 import React from 'react';
 
-import NewsCard from '../NewsCard/NewsCard'
+import Auth from '../Auth/Auth';
+import NewsCard from '../NewsCard/NewsCard';
 
 class NewsPanel extends React.Component{
     constructor() {
         super();
-        this.state = {news:null};
+        this.state = {news:null, pageNum:1, totalPages:1, loadedAll:false};
         this.handleScroll = this.handleScroll.bind(this);
     }
 
@@ -29,6 +30,9 @@ class NewsPanel extends React.Component{
     loadMoreNews() {
         let request = new Request('http://localhost:3000/news', {
             method: 'GET',
+            headers: {
+                'Authorization': 'bearer ' + Auth.getToken(),
+            },
             cache: false});
 
         fetch(request)
@@ -43,7 +47,6 @@ class NewsPanel extends React.Component{
     renderNews() {
         let news_list = this.state.news.map(function(news) {
             return(
-                // eslint-disable-next-line
                 <a className='list-group-item' href="#">
                     <NewsCard news={news} />
                 </a>
