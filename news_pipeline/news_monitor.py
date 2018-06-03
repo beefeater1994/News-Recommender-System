@@ -21,7 +21,17 @@ SCRAPE_NEWS_TASK_QUEUE_URL = "amqp://lvfbknos:oRrV2mPmKiz0y6FWYbJ-Pf4pUZ8JFB6f@o
 SCRAPE_NEWS_TASK_QUEUE_NAME = "tap_news_scrape_news_task_queue"
 
 NEWS_SOURCES = [
-    'cnn'
+    'bbc-news',
+    'bbc-sport',
+    'bloomberg',
+    'cnn',
+    'entertainment-weekly',
+    'espn',
+    'ign',
+    'techcrunch',
+    'the-new-york-times',
+    'the-wall-street-journal',
+    'the-washington-post'
 ]
 
 redis_client = redis.StrictRedis(REDIS_HOST, REDIS_PORT)

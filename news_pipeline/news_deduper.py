@@ -14,8 +14,8 @@ import mongodb_client
 from cloudAMQP_client import CloudAMQPClient
 
 # Use your own Cloud AMQP queue
-DEDUPE_NEWS_TASK_QUEUE_URL = "amqp://fhydamvt:fPDbDjWR86P0n4yZu3Dao2BhF5IDTf8a@clam.rmq.cloudamqp.com/fhydamvt"
-DEDUPE_NEWS_TASK_QUEUE_NAME = "cs503_tap_news_dedupe_news_task_queue"
+DEDUPE_NEWS_TASK_QUEUE_URL = "amqp://kdwwvmdf:UEI50D5c6p6BQCLm-niiAis-y9kU-jc4@otter.rmq.cloudamqp.com/kdwwvmdf"
+DEDUPE_NEWS_TASK_QUEUE_NAME = "tap_news_dedupe_news_task_queue"
 
 SLEEP_TIME_IN_SECONDS = 1
 
