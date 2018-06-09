@@ -1,8 +1,10 @@
-# -*- coding: utf-8 -*-
+# encoding=utf8
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 
 import datetime
 import os
-import sys
 
 from dateutil import parser
 from sklearn.feature_extraction.text import TfidfVectorizer

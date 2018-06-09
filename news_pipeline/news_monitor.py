@@ -1,10 +1,12 @@
-# -*- coding: utf-8 -*-
+# encoding=utf8
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 
 import datetime
 import hashlib
 import os
 import redis
-import sys
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'common'))
 
@@ -21,13 +23,18 @@ SCRAPE_NEWS_TASK_QUEUE_URL = "amqp://lvfbknos:oRrV2mPmKiz0y6FWYbJ-Pf4pUZ8JFB6f@o
 SCRAPE_NEWS_TASK_QUEUE_NAME = "tap_news_scrape_news_task_queue"
 
 NEWS_SOURCES = [
+    'abc-news',
     'bbc-news',
     'bbc-sport',
     'bloomberg',
     'cnn',
+    'cbs-news',
     'entertainment-weekly',
     'espn',
+    'fox-news',
+    'fox-sports',
     'ign',
+    'nfl-news',
     'techcrunch',
     'the-new-york-times',
     'the-wall-street-journal',

@@ -28,21 +28,33 @@ class NewsPanel extends React.Component{
     }
 
     loadMoreNews() {
-        let request = new Request('http://localhost:3000/news', {
-            method: 'GET',
-            headers: {
-                'Authorization': 'bearer ' + Auth.getToken(),
-            },
-            cache: false});
-
-        fetch(request)
-            .then((res) => res.json())
-            .then((news) => {
-                this.setState({
-                    news: this.state.news? this.state.news.concat(news) : news,
-                });
-            });
+    if (this.state.loadedAll === true) {
+      return;
     }
+
+    let url = 'http://localhost:3000/news/userId/' + Auth.getEmail()
+              + '/pageNum/' + this.state.pageNum;
+
+    let request = new Request(encodeURI(url), {
+      method: 'GET',
+      headers: {
+        'Authorization': 'bearer ' + Auth.getToken(),
+      },
+      cache: false});
+
+    fetch(request)
+      .then((res) => res.json())
+      .then((news) => {
+        if (!news ||  news.length === 0) {
+          this.setState({loadedAll: true});
+        }
+
+        this.setState({
+          news: this.state.news? this.state.news.concat(news) : news,
+          pageNum: this.state.pageNum + 1
+        });
+      });
+  }
 
     renderNews() {
         let news_list = this.state.news.map(function(news) {

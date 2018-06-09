@@ -6,9 +6,9 @@ NEWS_API_ENDPOINT = 'https://newsapi.org/v1/'
 NEWS_API_KEY = '5e3e65bc41df41e78107edf3565be98e'
 ARTICLES_API = 'articles'
 
-#BBC = 'bbc-news'
+BBC = 'bbc-news'
 CNN = 'cnn'
-DEFAULT_SOURCES = [CNN]
+DEFAULT_SOURCES = [CNN, BBC]
 
 SORT_BY_TOP = 'top'
 

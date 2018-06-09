@@ -1,7 +1,8 @@
-# -*- coding: utf-8 -*-
-
-import os
+# encoding=utf8
 import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
+import os
 
 from newspaper import Article
 
